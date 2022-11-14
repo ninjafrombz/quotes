@@ -24,7 +24,7 @@ func (app *application) readIDParam(r *http.Request) (int64, error) {
 	}
 
 	return id, nil
-	//Display the school id
+	//Display the quotes id
 
 }
 
