@@ -1,0 +1,1 @@
+ALTER TABLE quotes DROP CONSTRAINT IF EXISTS category_length_check;
