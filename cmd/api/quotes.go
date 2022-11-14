@@ -17,7 +17,7 @@ func (app *application) createQuoteHandler(w http.ResponseWriter, r *http.Reques
 	var input struct {
 		Author    string   `json:"author"`
 		Quote_string   string   `json:"quote_string"`
-		Category    []string `json:"categoty"`
+		Category    []string `json:"category"`
 	}
 
 	// Initialize a new json.Decoder instance
