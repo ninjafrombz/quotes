@@ -1,19 +1,20 @@
-BODY='{"name":"Apple tree", "level":"preschool", "contact":"Jane Smith", "phone":"501-607-1123", "email":"jsmith@xyz.edu.bz", "website":"http://xyz.edu.bz", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
+
+BODY='{"author":"Desire Amagwula", "quote_string":"You only get one chance to live, make the most of it", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"JK Rowling", "quote_string":"Fear of a name increases fear of the thing itself.", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"Vachel Lindsay", "quote_string":"Never be a cynic, even a gentle one. Never help out a sneer, even at the devil.", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"Leonardo Divinci", "quote_string":"Simplicity is the ultimate sophistication", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"Henry Ford", "quote_string":"The only real mistake is the one from which we learn nothing", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"Albert Einstein", "quote_string":"Creativity is intelligence having fun.", "category":["inspirational", "life-changing"]}'
 
 
-BODY='{"name":"XYZ", "level":"preschool", "contact":"Jane Smith", "phone":"501-607-1123", "email":"jsmith@xyz.edu.bz", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
-
-BODY='{"name":"XYZ", "level":"preschool", "contact":"Jane Smith", "phone":"501-607-1123", "address":"17 Peach street", "mode":["online", "face-to-face"]}'
-
-BODY='{"author":"James Prescott", "quote_string":You only get one chance to live, make the most of it", "category":["inspirational", "life-changing"]}'
 
 BODY='{"name":"Andrew Thomas", "email":"appletree2022@gmail.com", "password":"appletree"}'
 BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
-BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
-BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
-BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
-BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
-BODY='{"name":"Matthew Gruber", "email":"mattgruber@gmail.com", "password":"hate2001"}'
+BODY='{"name":"James Garner", "email":"jamesgarner@gmail.com", "password":"james2001"}'
+BODY='{"name":"Kaitlyn Spades", "email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}'
+BODY='{"name":"Junior Francisco", "email":"junior@gmail.com", "password":"junior2001"}'
+BODY='{"name":"Holland Thomas", "email":"hollandthomas@gmail.com", "password":"holland2001"}'
+BODY='{"name":"Claire Voyant", "email":"clairevoyant@gmail.com", "password":"claire2001"}'
 
 
 curl -i -d "$BODY" localhost:4000/v1/Quotes (insert into the database)
@@ -26,3 +27,12 @@ curl "localhost:4000/v1/Quotes?sort=author"
 curl "localhost:4000/v1/Quotes?page=1&page_size=20"
 curl "localhost:4000/v1/Quotes?page=1220&page_size=200&sort=author"
 curl "localhost:4000/v1/Quotes?page=0&page_size=-1&sort=author"
+
+Rate limiting
+for i in {1..6}; do curl http://localhost:4000/v1/healthcheck; done
+
+Graceful shutdown
+curl localhost:4000/v1/healthcheck & pkill -SIGTERM api
+
+Create new User
+curl -w '\nTime: %{time_total}\n' -d "$BODY" localhost:4000/v1/users
