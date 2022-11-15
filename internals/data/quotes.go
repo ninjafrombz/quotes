@@ -183,7 +183,7 @@ func (m QuoteModel) GetAll(author string, quote_string string, category []string
 		FROM quotes
 		WHERE (to_tsvector('simple', author) @@ plainto_tsquery('simple', $1) OR $1 = '')
 		AND (to_tsvector('simple', quote_string) @@ plainto_tsquery('simple', $2) OR $2 = '')
-		AND (mode @> $3 OR $3 = '{}' )
+		AND (category @> $3 OR $3 = '{}' )
 		ORDER by %s %s, id ASC
 		LIMIT $4 OFFSET $5`, filters.sortColumn(), filters.sortOrder())
 	// Create
