@@ -5,6 +5,7 @@ BODY='{"author":"Vachel Lindsay", "quote_string":"Never be a cynic, even a gentl
 BODY='{"author":"Leonardo Divinci", "quote_string":"Simplicity is the ultimate sophistication", "category":["inspirational", "life-changing"]}'
 BODY='{"author":"Henry Ford", "quote_string":"The only real mistake is the one from which we learn nothing", "category":["inspirational", "life-changing"]}'
 BODY='{"author":"Albert Einstein", "quote_string":"Creativity is intelligence having fun.", "category":["inspirational", "life-changing"]}'
+BODY='{"author":"Winston Churchill", "quote_string":"If you’re going through hell, keep going.", "category":["inspirational", "life-changing"]}'
 
 
 
