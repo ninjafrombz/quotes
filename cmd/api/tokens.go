@@ -14,7 +14,7 @@ import (
 func (app *application) createAuthenticationTokenHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse rthe email and the password from the request table 
 	var input struct {
-		Email string `json:email`
+		Email string `json:"email"`
 		Password string `json:"password"`
 	}
 	err := app.readJSON(w, r, &input)
@@ -35,7 +35,7 @@ func (app *application) createAuthenticationTokenHandler(w http.ResponseWriter, 
 	if err != nil {
 		switch {
 		case errors.Is(err, data.ErrRecordNotFound):
-			app.InvalidCredentialResponse(w, r)
+			app.invalidCredentialResponse(w, r)
 		default:
 			app.serverErrorResponse(w, r, err)
 		}
@@ -49,7 +49,7 @@ func (app *application) createAuthenticationTokenHandler(w http.ResponseWriter, 
 	}
 	// If passwords don't match, then return an invalid credentials response 
 	if !match {
-		app.InvalidCredentialResponse(w, r)
+		app.invalidCredentialResponse(w, r)
 		return
 	}
 	// Password is correct so we will generate an authentication token
