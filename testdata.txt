@@ -39,3 +39,7 @@ Create new User
 curl -w '\nTime: %{time_total}\n' -d "$BODY" localhost:4000/v1/users
 
 curl -X PUT -d '{"token":"KYBBYIEE2MZTQAHILUMBGDMA2Y"}' localhost:4000/v1/users/activated
+
+Authorization
+BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}' 
+curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
