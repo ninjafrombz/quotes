@@ -38,7 +38,7 @@ curl localhost:4000/v1/healthcheck & pkill -SIGTERM api
 Create new User
 curl -w '\nTime: %{time_total}\n' -d "$BODY" localhost:4000/v1/users
 
-curl -X PUT -d '{"token":"4E6MC6CVLFBO3O2IZJ6XMAIPUA"}' localhost:4000/v1/users/activated
+curl -X PUT -d '{"token":"KYBBYIEE2MZTQAHILUMBGDMA2Y"}' localhost:4000/v1/users/activated
 
 Authorization
 BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}' 
@@ -50,8 +50,8 @@ BODY='{"email":"mattgruber@gmail.com", "password":"hate2001"}'
 
 {
         "authentication token": {
-                "token": "QE72JSC7GKRYPEB5JCZAWXIWYU",
-                "expiry": "2022-12-04T14:21:20.512217812-06:00"
+                "token": "DYBRNXEVZJ7Q555RDERSBPXZLQ",
+                "expiry": "2022-12-04T17:36:02.133076287-06:00"
         }
 }
 
@@ -84,11 +84,10 @@ Matthew Gruber (read)
 
 {
         "authentication token": {
-                "token": "4E6MC6CVLFBO3O2IZJ6XMAIPUA",
-                "expiry": "2022-12-04T17:22:59.827449809-06:00"
+                "token": "PK5VPS6L4V5T2GKNQLMU367ZVM",
+                "expiry": "2022-12-04T17:29:04.653853571-06:00"
         }
 }
-
 curl -i -d "$BODY" -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/Quotes
 
 curl -i -d "$BODY" localhost:4000/v1/tokens/authentication

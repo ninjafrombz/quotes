@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
+	_ "github.com/lib/pq"
 	"quotesapi.desireamagwula.net/internals/data"
 	"quotesapi.desireamagwula.net/internals/jsonlog"
 	"quotesapi.desireamagwula.net/internals/mailer"
-	_ "github.com/lib/pq"
 )
 
 const version = "1.0.0"
@@ -35,11 +35,11 @@ type config struct {
 		enabled bool
 	}
 	smtp struct {
-		host string
-		port int
-		username string // from MailTrap setting 
-		password string 
-		sender string
+		host     string
+		port     int
+		username string // from MailTrap setting
+		password string
+		sender   string
 	}
 }
 
@@ -49,7 +49,7 @@ type application struct {
 	logger *jsonlog.Logger
 	models data.Models
 	mailer mailer.Mailer
-	wg sync.WaitGroup
+	wg     sync.WaitGroup
 }
 
 func main() {
@@ -65,14 +65,12 @@ func main() {
 	flag.Float64Var(&cfg.limiter.rps, "limiter-rps", 2, "Rate limiter maximum requests per second")
 	flag.IntVar(&cfg.limiter.burst, "limiter-burst", 4, "Rate limiter maximum burst")
 	flag.BoolVar(&cfg.limiter.enabled, "limiter-enabled", true, "Enable rate limiter")
-	// These are our flags for the mailer 
+	// These are our flags for the mailer
 	flag.StringVar(&cfg.smtp.host, "smtp-host", "smtp.mailtrap.io", "SMTP host")
-	flag.IntVar(&cfg.smtp.port, "smtp-port", 2525, "SMTP port")
+	flag.IntVar(&cfg.smtp.port, "smtp-port", 465, "SMTP port")
 	flag.StringVar(&cfg.smtp.username, "smtp-username", "8aa508469cef35", "SMTP username")
 	flag.StringVar(&cfg.smtp.password, "smtp-password", "30af5426f69429", "SMTP password")
 	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "AppleTree <no-reply@Appletree.desireamagwula.net>", "SMTP sender")
-
-
 
 	flag.Parse()
 
