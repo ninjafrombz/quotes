@@ -68,8 +68,8 @@ func main() {
 	// These are our flags for the mailer 
 	flag.StringVar(&cfg.smtp.host, "smtp-host", "smtp.mailtrap.io", "SMTP host")
 	flag.IntVar(&cfg.smtp.port, "smtp-port", 2525, "SMTP port")
-	flag.StringVar(&cfg.smtp.username, "smtp-username", "f87b6e0845f0ae", "SMTP username")
-	flag.StringVar(&cfg.smtp.password, "smtp-password", "83a846e3b9c5dc", "SMTP password")
+	flag.StringVar(&cfg.smtp.username, "smtp-username", "8aa508469cef35", "SMTP username")
+	flag.StringVar(&cfg.smtp.password, "smtp-password", "30af5426f69429", "SMTP password")
 	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "AppleTree <no-reply@Appletree.desireamagwula.net>", "SMTP sender")
 
 
