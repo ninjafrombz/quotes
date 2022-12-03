@@ -43,3 +43,15 @@ curl -X PUT -d '{"token":"KYBBYIEE2MZTQAHILUMBGDMA2Y"}' localhost:4000/v1/users/
 Authorization
 BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}' 
 curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
+
+
+{
+        "authentication token": {
+                "token": "QE72JSC7GKRYPEB5JCZAWXIWYU",
+                "expiry": "2022-12-04T14:21:20.512217812-06:00"
+        }
+}
+
+curl -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/healthcheck
+
+
