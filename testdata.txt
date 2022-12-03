@@ -55,3 +55,22 @@ curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
 curl -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/healthcheck
 
 
+1.) Give all users read permission
+INSERT INTO users_permissions
+SELECT id, (SELECT id FROM permissions WHERE code = 'quotes:read') FROM users;
+
+2.) Give user panda permission to write 
+INSERT INTO users_permissions(user_id, permission_id)
+VALUES (
+(SELECT id FROM users WHERE email = 'panda@example.com'),
+(SELECT id FROM permissions WHERE code = 'quotes:write')
+);
+
+3. List the activated users and their permissions
+SELECT email, permissions_code 
+FROM permissions
+INNER JOIN users_permissions
+ON users_permissions.permission_id = permission_id
+INNER JOIN users
+ON users_permissions.user_id = users.id
+WHERE users.activated = true; 
