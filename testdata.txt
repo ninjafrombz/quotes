@@ -38,7 +38,7 @@ curl localhost:4000/v1/healthcheck & pkill -SIGTERM api
 Create new User
 curl -w '\nTime: %{time_total}\n' -d "$BODY" localhost:4000/v1/users
 
-curl -X PUT -d '{"token":"I6ROQWCV6RK4YL67MJV5CKMPVI"}' localhost:4000/v1/users/activated
+curl -X PUT -d '{"token":"AFKQKYY2DV7J2II2GCREF4VD34"}' localhost:4000/v1/users/activated
 
 Authorization
 BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}' 
