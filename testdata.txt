@@ -38,7 +38,7 @@ curl localhost:4000/v1/healthcheck & pkill -SIGTERM api
 Create new User
 curl -w '\nTime: %{time_total}\n' -d "$BODY" localhost:4000/v1/users
 
-curl -X PUT -d '{"token":"KYBBYIEE2MZTQAHILUMBGDMA2Y"}' localhost:4000/v1/users/activated
+curl -X PUT -d '{"token":"I6ROQWCV6RK4YL67MJV5CKMPVI"}' localhost:4000/v1/users/activated
 
 Authorization
 BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}' 
@@ -46,6 +46,7 @@ curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
 
 BODY='{"email":"kaitlynspades@gmail.com", "password":"kaitlyn2000"}'
 BODY='{"email":"mattgruber@gmail.com", "password":"hate2001"}'
+BODY='{"email":"hollandthomas@gmail.com", "password":"holland2001"}'
 
 
 {
@@ -56,6 +57,7 @@ BODY='{"email":"mattgruber@gmail.com", "password":"hate2001"}'
 }
 
 curl -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/healthcheck
+
 
 
 1.) Give all users read permission
@@ -88,6 +90,16 @@ Matthew Gruber (read)
                 "expiry": "2022-12-04T17:29:04.653853571-06:00"
         }
 }
+
+Holland Thomas
+
+{
+        "authentication token": {
+                "token": "I6ROQWCV6RK4YL67MJV5CKMPVI",
+                "expiry": "2022-12-04T18:06:22.278381502-06:00"
+        }
+}
+
 curl -i -d "$BODY" -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/Quotes
 
 curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
