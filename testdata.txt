@@ -104,4 +104,12 @@ curl -i -d "$BODY" -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localho
 
 curl -i -d "$BODY" localhost:4000/v1/tokens/authentication
 
-curl -X DELETE -H "Authorization: Bearer 4E6MC6CVLFBO3O2IZJ6XMAIPUA" localhost:4000/v1/Quotes/2
+curl -X DELETE -H "Authorization: Bearer QE72JSC7GKRYPEB5JCZAWXIWYU" localhost:4000/v1/Quotes/2
+
+SELECT email, code
+FROM users
+INNER JOIN users_permissions
+ON users.id = users_permissions.user_id
+INNER JOIN permissions
+ON users_permissions.permission_id = permissions.id;
+
